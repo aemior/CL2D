@@ -74,23 +74,22 @@ def grab_point_draw(tar_res, img, tf_obj):
 
 
 if args.run_mode == 'modeling':
-    souce_dir = args.train#'/home/ming/project/bin_picking/data/raw_tmp/'
-    dst_dir = args.orgin#'/home/ming/project/bin_picking/data/build_tmp/'
+    souce_dir = args.modeling
+    dst_dir = args.template
     all_tmp = os.listdir(souce_dir)
     for i in all_tmp:
         print('Now process:', i) 
         j = i.split('_') 
         model_id = j[0]+'_'+j[1] 
-        a_1, b_1, c_, d_, e_, f_ = vir_raw_info(souce_dir+i) 
-        print('Build success') 
+        a_, b_, c_, d_, e_ = vir_raw_info(souce_dir+i) 
         img_0 = cv2.imread(souce_dir+i+'/'+i+'.bmp') 
-        core_obj.buildTemplate(model_id, i, img_0, a_1, c_, d_, e_, f_)
+        core_obj.buildTemplate(model_id, i, img_0, a_, b_, c_, d_, e_)
         if os.path.exists(dst_dir+i):
             for k in os.listdir(dst_dir+i):
                 os.remove(dst_dir+i+'/'+k)
             save_str_info(core_obj, i, dst_dir+i)
         else:
-            os.mkdir(dst_dir+i)
+            os.makedirs(dst_dir+i)
             save_str_info(core_obj, i, dst_dir+i)
             print('Save success')
 
