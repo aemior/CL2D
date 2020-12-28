@@ -17,7 +17,7 @@ Test in ubuntu 20.04 and Python 3.8.5
 2. pip3 install opencv-python shapely
 
 ## Papare data
-Extract YNU-BBD2020.zip to ./
+Extract [YNU-BBD2020.zip](https://drive.google.com/file/d/19o_row_RqR1y5bNN1lbmgtauSzs6h5xB/view?usp=sharing) to ./
 
 ## Visualize
 To show Ground Truth
